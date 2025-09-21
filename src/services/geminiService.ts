@@ -1,6 +1,5 @@
 import { toast } from "@/components/ui/use-toast";
-
-// Types for the business idea data
+import dotenv from "dotenv";
 export interface BusinessIdea {
   title: string;
   description: string;
@@ -36,9 +35,7 @@ export interface AnalysisResponse {
 
 const API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
-// Add your API key here or load it from environment variables
-// IMPORTANT: Replace this with your actual Gemini API key
-const API_KEY = "API-KEY"; // <-- Replace with your API key
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 export const generateBusinessAnalysis = async (idea: BusinessIdea): Promise<AnalysisResponse> => {
   try {
