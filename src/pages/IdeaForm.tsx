@@ -55,7 +55,6 @@ const IdeaForm = () => {
     },
   });
 
-  // Remove the duplicate handleSubmit function and use formSubmit
   const formSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -76,16 +75,13 @@ const IdeaForm = () => {
         uniqueSelling
       };
 
-      // Show loading toast
       toast({
         title: "Analyzing your idea...",
         description: "This may take a moment.",
       });
 
-      // Generate analysis using Gemini API
       const analysis = await generateBusinessAnalysis(businessIdea);
       
-      // Store both the idea and analysis in sessionStorage
       sessionStorage.setItem("businessIdea", JSON.stringify(businessIdea));
       sessionStorage.setItem("businessAnalysis", JSON.stringify(analysis));
       
