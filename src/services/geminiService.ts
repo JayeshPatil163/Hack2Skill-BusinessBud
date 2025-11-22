@@ -35,11 +35,10 @@ export interface AnalysisResponse {
 
 const API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const API_KEY = "AIzaSyBxJUcZOlj9gVOerHd36A7E2Wi4D38uygc";
 
 export const generateBusinessAnalysis = async (idea: BusinessIdea): Promise<AnalysisResponse> => {
   try {
-    // Improved prompt for the Gemini API that asks for JSON-like structure
     const prompt = `
     Analyze this business idea in detail and provide a structured response:
     
@@ -149,8 +148,6 @@ export const generateBusinessAnalysis = async (idea: BusinessIdea): Promise<Anal
 const parseGeminiResponse = (text: string): AnalysisResponse => {
   console.log("Parsing Gemini response:", text);
   try {
-    // Extract sections using improved regex patterns
-    // Using non-greedy patterns and more specific section headers
     const strengthsMatch = text.match(/Strengths:[\s\S]*?(?=Weaknesses:|$)/i);
     const weaknessesMatch = text.match(/Weaknesses:[\s\S]*?(?=Market Analysis:|$)/i);
     const marketMatch = text.match(/Market Analysis:[\s\S]*?(?=Competitor Analysis:|$)/i);
@@ -159,7 +156,6 @@ const parseGeminiResponse = (text: string): AnalysisResponse => {
     const roadmapMatch = text.match(/Implementation Roadmap:[\s\S]*?(?=Financial Projections:|$)/i);
     const financialMatch = text.match(/Financial Projections:[\s\S]*?(?=Conclusion|$)/i);
 
-    // Extract demographics and psychographics from the customer section
     const customerSection = customerMatch ? customerMatch[0] : "";
     const demographicsMatch = customerSection.match(/Demographics:[\s\S]*?(?=Psychographics:|Pain Points:|$)/i);
     const psychographicsMatch = customerSection.match(/Psychographics:[\s\S]*?(?=Pain Points:|$)/i);
