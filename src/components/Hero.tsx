@@ -15,8 +15,9 @@ const Hero = () => {
         </div>
         
         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in" style={{ animationDelay: "100ms" }}>
-          <span className="text-gradient">Turn Your Business Ideas</span> Into 
-          <br /> Successful Ventures
+          <span className="text-gradient">Turn Your Business Ideas Into</span>
+          <br /> 
+          <span className="text-gradient">Successful Ventures</span>
         </h1>
         
         <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "200ms" }}>

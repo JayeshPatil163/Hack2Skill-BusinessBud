@@ -16,7 +16,6 @@ const AnalysisPage = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
 
   useEffect(() => {
-    // Load business idea and analysis from session storage
     const loadData = () => {
       try {
         const ideaData = sessionStorage.getItem("businessIdea");
